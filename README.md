@@ -1,2 +1,2 @@
-# actions-runner
+# actions-container
 Base image for github actions

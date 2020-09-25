@@ -6,6 +6,7 @@ RUN apt-get update \
         curl \
         git \
         apt-utils \
+        software-properties-common \
         apt-transport-https \
         unzip \
         gnupg2 \

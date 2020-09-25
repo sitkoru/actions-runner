@@ -10,8 +10,7 @@ RUN apt-get update \
         apt-utils \
         apt-transport-https \
         unzip \
-        gnupg2
-        \
+        gnupg2 \
         # .NET dependencies
         libc6 \
         libgcc1 \

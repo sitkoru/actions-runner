@@ -14,4 +14,5 @@ RUN apt-get update \
         libssl1.1 \
         libstdc++6 \
         zlib1g \
+        liblttng-ust-ctl4 \
     && rm -rf /var/lib/apt/lists/*

@@ -22,7 +22,9 @@ RUN apt-get update \
         rsync \
         openssh-client \
     && curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
+    && curl -fsSL https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
+    && add-apt-repository "deb [arch=amd64] http://dl.google.com/linux/chrome/deb stable main" \
     && apt-get update \
-    && apt-get install -y --no-install-recommends docker-ce-cli \
+    && apt-get install -y --no-install-recommends docker-ce-cli `apt-cache depends google-chrome-stable | awk '/Depends:/{print$2}'` \
     && rm -rf /var/lib/apt/lists/*

@@ -26,5 +26,5 @@ RUN apt-get update \
     && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
     && add-apt-repository "deb [arch=amd64] http://dl.google.com/linux/chrome/deb stable main" \
     && apt-get update \
-    && apt-get install -y --no-install-recommends docker-ce-cli `apt-cache depends google-chrome-stable | awk '/Depends:/{print$2}'` \
+    && apt-get install -y --no-install-recommends docker-ce-cli `apt-cache depends google-chrome-stable | awk '/Depends:/{print$2}'` libxss1 \
     && rm -rf /var/lib/apt/lists/*

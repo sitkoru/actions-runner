@@ -1,4 +1,4 @@
-FROM amd64/debian:buster-slim
+FROM ubuntu:latest
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \

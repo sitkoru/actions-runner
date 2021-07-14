@@ -29,7 +29,7 @@ RUN apt-get update \
     && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
     && add-apt-repository "deb [arch=amd64] http://dl.google.com/linux/chrome/deb stable main" \
     && apt-get update \
-    && apt-get install -y --no-install-recommends docker-ce-cli $(apt-cache depends google-chrome-stable | grep Depends | sed -e "s/.*ends:\ //" -e 's/<[^>]*>//')` libxss1 libxtst6 libx11-xcb1 \
+    && apt-get install -y --no-install-recommends docker-ce-cli $(apt-cache depends google-chrome-stable | grep Depends | sed -e "s/.*ends:\ //" -e 's/<[^>]*>//') libxss1 libxtst6 libx11-xcb1 \
     && curl -L https://dot.net/v1/dotnet-install.sh -o /dotnet-install.sh \
     && chmod +x /dotnet-install.sh \
     && /dotnet-install.sh --channel 3.1 \

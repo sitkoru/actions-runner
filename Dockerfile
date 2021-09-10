@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 
 ARG DEBIAN_FRONTEND=noninteractive
+ARG GITHUB_CLI_VERSION=2.0.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -35,4 +36,7 @@ RUN apt-get update \
     && /dotnet-install.sh --channel 3.1 \
     && /dotnet-install.sh --channel 5.0 \
     && ln -s /root/.dotnet/dotnet /usr/bin/dotnet \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    # GitHub Cli
+    && curl -L https://github.com/cli/cli/releases/download/v${GITHUB_CLI_VERSION}/gh_${GITHUB_CLI_VERSION}_linux_amd64.deb -o /tmp/gh_${GITHUB_CLI_VERSION}_linux_amd64.deb \
+    && dpkg -i /tmp/gh_${GITHUB_CLI_VERSION}_linux_amd64.deb

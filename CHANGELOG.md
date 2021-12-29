@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/sitkoru/actions-container/compare/v2.4.0...v2.5.0) (2021-12-29)
+
+
+### Features
+
+* install .net 6, add emscripten and wasm tools ([af2bb2e](https://github.com/sitkoru/actions-container/commit/af2bb2ecc806b34a49aa7d32c0d66f5267ca5ec9))
+
 # [2.4.0](https://github.com/sitkoru/actions-container/compare/v2.3.0...v2.4.0) (2021-09-10)
 
 

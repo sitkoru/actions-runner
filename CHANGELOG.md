@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/sitkoru/actions-container/compare/v2.5.0...v2.6.0) (2022-02-14)
+
+
+### Features
+
+* **.net:** update versions ([df70c89](https://github.com/sitkoru/actions-container/commit/df70c89129bb2d21584e88c5172a399b7179e95d))
+
 # [2.5.0](https://github.com/sitkoru/actions-container/compare/v2.4.0...v2.5.0) (2021-12-29)
 
 

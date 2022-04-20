@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/sitkoru/actions-container/compare/v2.7.0...v2.8.0) (2022-04-20)
+
+
+### Features
+
+* **.net:** monthly update ([ce89d70](https://github.com/sitkoru/actions-container/commit/ce89d70e43b8211703d3e7db579281a4c156ce81))
+
 # [2.7.0](https://github.com/sitkoru/actions-container/compare/v2.6.0...v2.7.0) (2022-03-09)
 
 

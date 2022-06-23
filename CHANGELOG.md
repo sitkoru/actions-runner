@@ -1,3 +1,10 @@
+## [2.9.1](https://github.com/sitkoru/actions-container/compare/v2.9.0...v2.9.1) (2022-06-23)
+
+
+### Bug Fixes
+
+* back to ubuntu 20.04 ([7dfacd4](https://github.com/sitkoru/actions-container/commit/7dfacd450275ab97c9f8e6837cf7a0418bb82542))
+
 # [2.9.0](https://github.com/sitkoru/actions-container/compare/v2.8.0...v2.9.0) (2022-06-23)
 
 

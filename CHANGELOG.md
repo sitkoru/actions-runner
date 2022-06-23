@@ -1,3 +1,15 @@
+# [2.9.0](https://github.com/sitkoru/actions-container/compare/v2.8.0...v2.9.0) (2022-06-23)
+
+
+### Bug Fixes
+
+* new packages versions for latest ubuntu ([35af43e](https://github.com/sitkoru/actions-container/commit/35af43e3de587e55b0d7f608472dbe9193c74898))
+
+
+### Features
+
+* GitHub CLI 2.13.0 ([e5cc5a9](https://github.com/sitkoru/actions-container/commit/e5cc5a9a8ef7ca80abae475635a0c241ba6339ba))
+
 # [2.8.0](https://github.com/sitkoru/actions-container/compare/v2.7.0...v2.8.0) (2022-04-20)
 
 

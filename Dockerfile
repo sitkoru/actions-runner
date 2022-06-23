@@ -17,11 +17,11 @@ RUN apt-get update \
     libc6 \
     libgcc1 \
     libgssapi-krb5-2 \
-    libicu66 \
-    libssl1.1 \
+    libicu70 \
+    libssl3 \
     libstdc++6 \
     zlib1g \
-    liblttng-ust-ctl4 \
+    liblttng-ust-ctl5 \
     rsync \
     openssh-client \
     sudo \

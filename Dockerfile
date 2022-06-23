@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG GITHUB_CLI_VERSION=2.13.0
@@ -17,11 +17,11 @@ RUN apt-get update \
     libc6 \
     libgcc1 \
     libgssapi-krb5-2 \
-    libicu70 \
-    libssl3 \
+    libicu66 \
+    libssl1.1 \
     libstdc++6 \
     zlib1g \
-    liblttng-ust-ctl5 \
+    liblttng-ust-ctl4 \
     rsync \
     openssh-client \
     sudo \

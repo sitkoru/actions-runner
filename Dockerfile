@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG GITHUB_CLI_VERSION=2.4.0
+ARG GITHUB_CLI_VERSION=2.13.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \

@@ -1,3 +1,10 @@
+# [2.10.0](https://github.com/sitkoru/actions-container/compare/v2.9.1...v2.10.0) (2022-07-26)
+
+
+### Features
+
+* **.net:** new .NET versions ([71361f1](https://github.com/sitkoru/actions-container/commit/71361f15af1f54018029d9f37fd452a1be57e179))
+
 ## [2.9.1](https://github.com/sitkoru/actions-container/compare/v2.9.0...v2.9.1) (2022-06-23)
 
 

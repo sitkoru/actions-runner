@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/sitkoru/actions-container/compare/v2.10.0...v2.11.0) (2022-08-11)
+
+
+### Features
+
+* **dotnet:** 3.1.28 and 6.0.8 ([a60ba5e](https://github.com/sitkoru/actions-container/commit/a60ba5ea0ea136d2c384b79a0b6ce8fc3455204e))
+
 # [2.10.0](https://github.com/sitkoru/actions-container/compare/v2.9.1...v2.10.0) (2022-07-26)
 
 

@@ -1,3 +1,10 @@
+# [2.12.0](https://github.com/sitkoru/actions-container/compare/v2.11.0...v2.12.0) (2022-10-05)
+
+
+### Features
+
+* **.net:** .NET Core 3.1.29 and .NET 6.0.9 ([0b79de1](https://github.com/sitkoru/actions-container/commit/0b79de142094fc64450a675c39320ff856f3f061))
+
 # [2.11.0](https://github.com/sitkoru/actions-container/compare/v2.10.0...v2.11.0) (2022-08-11)
 
 

@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG GITHUB_CLI_VERSION=2.13.0
+ARG GITHUB_CLI_VERSION=2.20.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -48,6 +48,7 @@ RUN apt-get update \
     && /dotnet-install.sh --channel 3.1 \
     && /dotnet-install.sh --channel 5.0 \
     && /dotnet-install.sh --channel 6.0 \
+    && /dotnet-install.sh --channel 7.0 \
     && PATH="$PATH:/root/.dotnet" \
     && dotnet workload install wasm-tools \
     # GitHub Cli

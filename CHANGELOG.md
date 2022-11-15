@@ -1,3 +1,10 @@
+# [2.14.0](https://github.com/sitkoru/actions-container/compare/v2.13.0...v2.14.0) (2022-11-15)
+
+
+### Features
+
+* **.net:** install .net 7 ([364cc31](https://github.com/sitkoru/actions-container/commit/364cc3137257b4013f11a44bc5ffec7ae24f5f7d))
+
 # [2.13.0](https://github.com/sitkoru/actions-container/compare/v2.12.0...v2.13.0) (2022-10-17)
 
 

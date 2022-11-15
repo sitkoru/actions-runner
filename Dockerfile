@@ -48,6 +48,7 @@ RUN apt-get update \
     && /dotnet-install.sh --channel 3.1 \
     && /dotnet-install.sh --channel 5.0 \
     && /dotnet-install.sh --channel 6.0 \
+    && /dotnet-install.sh --channel 7.0 \
     && PATH="$PATH:/root/.dotnet" \
     && dotnet workload install wasm-tools \
     # GitHub Cli

@@ -6,3 +6,4 @@ Base image for github actions
 - 3.1.30
 - 5.0.17
 - 6.0.10
+- 7.0.2

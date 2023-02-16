@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG GITHUB_CLI_VERSION=2.20.0
+ARG GITHUB_CLI_VERSION=2.23.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \

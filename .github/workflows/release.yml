@@ -76,7 +76,7 @@ jobs:
           file: ./Dockerfile
           tags: ${{ steps.prep.outputs.tags-wasm }}
           push: true
-          target: common
+          target: wasm
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
           labels: |

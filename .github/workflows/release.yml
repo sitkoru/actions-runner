@@ -14,17 +14,22 @@ jobs:
         id: prep
         run: |
           DOCKER_IMAGE=ghcr.io/sitkoru/actions-container
+          DOCKER_IMAGE_WASM=ghcr.io/sitkoru/actions-container-wasm
           VERSION=${GITHUB_REF#refs/tags/}
           TAGS="${DOCKER_IMAGE}:${VERSION}"
+          TAGS_WASM="${DOCKER_IMAGE_WASM}:${VERSION}"
           if [[ $VERSION =~ ^v[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
             MINOR=${VERSION%.*}
             MAJOR=${MINOR%.*}
             TAGS="$TAGS,${DOCKER_IMAGE}:${MINOR},${DOCKER_IMAGE}:${MAJOR},${DOCKER_IMAGE}:latest"
+            TAGS_WASM="$TAGS_WASM,${DOCKER_IMAGE_WASM}:${MINOR},${DOCKER_IMAGE_WASM}:${MAJOR},${DOCKER_IMAGE_WASM}:latest"
           elif [ "${{ github.event_name }}" = "push" ]; then
             TAGS="$TAGS,${DOCKER_IMAGE}:sha-${GITHUB_SHA::8}"
+            TAGS_WASM="$TAGS_WASM,${DOCKER_IMAGE_WASM}:sha-${GITHUB_SHA::8}"
           fi
           echo ::set-output name=version::${VERSION}
           echo ::set-output name=tags::${TAGS}
+          echo ::set-output name=tags-wasm::${TAGS_WASM}
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -43,7 +48,7 @@ jobs:
           registry: ghcr.io
           username: ${{ secrets.BOT_NAME }}
           password: ${{ secrets.BOT_TOKEN }}
-      - name: Build and push
+      - name: Build and push common
         id: docker_build
         uses: docker/build-push-action@v2
         with:
@@ -51,6 +56,27 @@ jobs:
           file: ./Dockerfile
           tags: ${{ steps.prep.outputs.tags }}
           push: true
+          target: common
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+          labels: |
+            org.opencontainers.image.title=${{ github.event.repository.name }}
+            org.opencontainers.image.description=${{ github.event.repository.description }}
+            org.opencontainers.image.url=${{ github.event.repository.html_url }}
+            org.opencontainers.image.source=${{ github.event.repository.clone_url }}
+            org.opencontainers.image.version=${{ steps.prep.outputs.version }}
+            org.opencontainers.image.created=${{ steps.prep.outputs.created }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.licenses=${{ github.event.repository.license.spdx_id }}
+      - name: Build and push wasm
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          tags: ${{ steps.prep.outputs.tags-wasm }}
+          push: true
+          target: common
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
           labels: |

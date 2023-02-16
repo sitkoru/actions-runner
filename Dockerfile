@@ -45,8 +45,6 @@ RUN apt-get update \
     # .NET
     && curl -L https://dot.net/v1/dotnet-install.sh -o /dotnet-install.sh \
     && chmod +x /dotnet-install.sh \
-    && /dotnet-install.sh --channel 3.1 \
-    && /dotnet-install.sh --channel 5.0 \
     && /dotnet-install.sh --channel 6.0 \
     && /dotnet-install.sh --channel 7.0 \
     && PATH="$PATH:/root/.dotnet" \

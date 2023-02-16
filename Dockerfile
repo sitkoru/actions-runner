@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as common
+FROM ubuntu:23.04 as common
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG GITHUB_CLI_VERSION=2.23.0

@@ -6,5 +6,6 @@ Base image with emscripten and .net wasm workload
 
 # Версиии .NET
 
-- 6.0.21
-- 7.0.10
+- 6.0.23
+- 7.0.12
+- 8.0.0-rc.2

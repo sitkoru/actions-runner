@@ -40,6 +40,7 @@ RUN apt-get update \
     && chmod +x /dotnet-install.sh \
     && /dotnet-install.sh --channel 6.0 \
     && /dotnet-install.sh --channel 7.0 \
+    && /dotnet-install.sh --channel 8.0 \
     && PATH="$PATH:/root/.dotnet" \
     # GitHub Cli
     && curl -L https://github.com/cli/cli/releases/download/v${GITHUB_CLI_VERSION}/gh_${GITHUB_CLI_VERSION}_linux_amd64.deb -o /tmp/gh_${GITHUB_CLI_VERSION}_linux_amd64.deb \

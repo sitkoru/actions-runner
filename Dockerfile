@@ -48,6 +48,8 @@ RUN apt-get update \
     # Cleanup
     && rm -rf /var/lib/apt/lists/*
 
+COPY global.json /global.json
+
 ENV PATH "$PATH:/root/.dotnet"
 
 FROM common as wasm

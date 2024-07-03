@@ -38,6 +38,13 @@ RUN apt-get update \
     && add-apt-repository "deb [arch=amd64] http://dl.google.com/linux/chrome/deb stable main" \
     && apt-get update \
     && apt-get install -y --no-install-recommends docker-ce-cli $(apt-cache depends google-chrome-stable | grep Depends | sed -e "s/.*ends:\ //" -e 's/<[^>]*>//') libxss1 libxtst6 libx11-xcb1 \
+    # .NET
+    && curl -L https://dot.net/v1/dotnet-install.sh -o /dotnet-install.sh \
+    && chmod +x /dotnet-install.sh \
+    && /dotnet-install.sh --channel 6.0 \
+    && /dotnet-install.sh --channel 7.0 \
+    && /dotnet-install.sh --channel 8.0 \
+    && PATH="$PATH:/root/.dotnet" \
     # GitHub Cli
     && curl -L https://github.com/cli/cli/releases/download/v${GITHUB_CLI_VERSION}/gh_${GITHUB_CLI_VERSION}_linux_amd64.deb -o /tmp/gh_${GITHUB_CLI_VERSION}_linux_amd64.deb \
     && dpkg -i /tmp/gh_${GITHUB_CLI_VERSION}_linux_amd64.deb \
@@ -46,16 +53,9 @@ RUN apt-get update \
 
 COPY global.json /global.json
 
-ENV PATH "$PATH:/home/runner/.dotnet"
+ENV PATH "$PATH:/root/.dotnet"
 
 USER runner
-
-    # .NET
-RUN curl -L https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh \
-    && chmod +x dotnet-install.sh \
-    && ./dotnet-install.sh --channel 6.0 \
-    && ./dotnet-install.sh --channel 7.0 \
-    && ./dotnet-install.sh --channel 8.0
 
 FROM common as wasm
 USER root

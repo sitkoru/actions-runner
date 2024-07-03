@@ -1,12 +1,9 @@
-FROM ghcr.io/actions/actions-runner:latest as common
+FROM ubuntu:20.04 as common
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG GITHUB_CLI_VERSION=2.42.0
 
-USER root
-
 RUN apt-get update \
-    # && apt search liblttng \
     && apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
@@ -17,14 +14,14 @@ RUN apt-get update \
     unzip \
     gnupg2 \
     # .NET dependencies
-    # libc6 \
-    # libgcc1 \
-    # libgssapi-krb5-2 \
-    # libicu70 \
-    # libssl3 \
-    # libstdc++6 \
-    # zlib1g \
-    # liblttng-ust-ctl4 \
+    libc6 \
+    libgcc1 \
+    libgssapi-krb5-2 \
+    libicu66 \
+    libssl1.1 \
+    libstdc++6 \
+    zlib1g \
+    liblttng-ust-ctl4 \
     rsync \
     openssh-client \
     sudo \
@@ -55,10 +52,7 @@ COPY global.json /global.json
 
 ENV PATH "$PATH:/root/.dotnet"
 
-USER runner
-
 FROM common as wasm
-USER root
 # Emscripten
 RUN mkdir /ems \
     && cd /ems \
@@ -66,6 +60,4 @@ RUN mkdir /ems \
     && cd /ems/emsdk \
     && ./emsdk install latest \
     && ./emsdk activate latest \
-    && dotnet workload install wasm-tools
-
-USER runner
+    && dotnet workload install wasm-tools \

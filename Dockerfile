@@ -47,6 +47,9 @@ RUN apt-get update \
     && dpkg -i /tmp/gh_${GITHUB_CLI_VERSION}_linux_amd64.deb \
     # Cleanup
     && rm -rf /var/lib/apt/lists/*
+    && curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+    && chmod 700 get_helm.sh
+    && ./get_helm.sh
 
 COPY global.json /global.json
 
